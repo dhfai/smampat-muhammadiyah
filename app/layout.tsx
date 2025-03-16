@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Navbar } from "@/components/Header/navbar";
+import { FooterSection } from "@/components/utils/Footer";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SMAMPAT-MUHAMMADIYAH",
-  description: "SMA 4 MUHAMMADIYAH MAKASSAR",
+  title: "Shadcn - Landing template",
+  description: "Landing template from Shadcn",
 };
 
 export default function RootLayout({
@@ -26,14 +18,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-        <body className={`${geistMono} min-h-screen bg-background text-foreground`}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </ThemeProvider>
-        </body>
-      </html>
+    <html lang="pt-br" suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background", inter.className)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <FooterSection />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

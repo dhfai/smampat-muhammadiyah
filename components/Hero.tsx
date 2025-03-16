@@ -3,10 +3,18 @@
 import { motion } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel"
 import { Card, CardContent } from "./ui/card"
+import Image from "next/image"
 
 export default function Hero() {
   return (
     <div className="relative isolate overflow-hidden bg-background">
+      {/* <Image
+        src="/placeholder.svg"
+        alt="image-bg"
+        width={100}
+        height={100}
+        className="absolute inset-0 z-[-999] object-cover w-full h-full"
+      /> */}
       <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-x-10 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg lg:flex-shrink-0">
           <motion.h1
@@ -23,7 +31,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum perferendis doloribus nisi,
+            SMA Muhammadiyah Makassar sekolah yang mencetak siswa kompetitif, Islami, berakhlak mulia, berdaya saing global, berilmu, beriman, kreatif, mandiri, serta memiliki kepedulian sosial dan semangat kolaborasi dalam kehidupan bermasyarakat.
           </motion.p>
           <motion.div
             className="mt-10 flex items-center gap-x-6"
